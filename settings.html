@@ -1,0 +1,136 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>AR WEB RECEIVER: SETTINGS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+    <script src="javascript/jquery-1.11.1.min.js"></script>
+    <script src="javascript/jquery.mobile-1.4.5.min.js"></script>
+    <script src="javascript/init.js"></script>
+    <script src="javascript/share.js"></script>
+    <script src="javascript/menu.js"></script>
+    <script src="javascript/setting.js"></script>
+  </head>
+  <body>
+    <div data-role="page" class="login-page" id="main" data-dom-cache="false">
+      <div data-role="panel" id="menu-panel">
+        <ul data-role="listview">
+          <li><a href="#" id="receiver-button">AR RECEIVER</a></li>
+          <li data-role="list-divider" role="heading">ADAPTER</li>
+          <li data-icon="gear"><a href="#" id="adapter-settings-button">Settings</a></li>
+          <li data-icon="power" id="shutdown"><a href="#">Shutdown</a></li>
+          <li data-icon="refresh" id="reboot"><a href="#">Reboot</a></li>
+        </ul>
+        <div data-role="popup" id="fn-menu-popup" data-overlay-theme="b" data-dismissible="false" data-position-to="window" style="min-width:300px;">
+          <div data-role="header">
+            <h1 id="fn-menu-popup-title"></h1>
+          </div>
+          <div role="main" class="ui-content">
+            <p id="fn-menu-popup-message"></p>
+            <a href="#" class="ui-btn" id="fn-menu-popup-close">Close</a>
+          </div>
+        </div>
+      </div>
+      <div data-role="header">
+        <a href="#menu-panel" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-bars">Menu</a>
+        <h1>SETTINGS</h1>
+      </div>
+      <div role="main" class="ui-content adapter-setting-main">
+
+        <div class="ui-body ui-body-a ui-corner-all">
+          <h2>Security</h2>
+          <div id="password-error">
+            <p ></p>
+          </div>
+          <p>It is a security setting for access from outside.</p>
+          <form>
+            <label class="setting" for="password">Password</label>
+            <input type="password" name="password-a" id="password-a" autocomplete="off" />
+            <label  class="setting" for="password-confirm">PasswordConfirm</label>
+            <input type="password" name="password-confirm" id="password-confirm" autocomplete="off" />
+            <p>
+              Please enter at least 8 characters.<br />The characters that can be used are: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTYVWXYZ0123456789!"#$%&'()*+,-;:<>=?@[\]^_`{|}~
+            </p>
+          </form>
+          <button id="security-submit" class="ui-shadow ui-btn ui-corner-all">Update</button>
+        </div>
+        <div class="ui-body ui-body-a ui-corner-all setting-panel">
+          <h2>Wifi</h2>
+          <p>Rebooting is necessary when updating.</p>
+          <div id="wifi-error">
+            <ul>
+            </ul>
+          </div>
+          <label class="setting">MAC Address</label>
+          <p id="wlan0MACAddress"></p>
+          <label class="setting">IP Address</label>
+          <p id="wlan0IPAddress"></p>
+          <form>
+            <label class="setting" for="country">Counrty</label>
+            <input type="text" name="country" id="country" value=""/>
+            <p>
+              Country code (ISO/IEC 3166-1). <br />
+              Used to set regulatory domain.Set as needed to indicate country in which device is operating.<br /> This can limit available channels and transmit power.
+            </p>
+            <label class="setting" for="operationMode">Operation mode</label>
+            <select name="operationMode" id="operationMode">
+              <option value="a">IEEE 802.11a</option>
+              <option value="b">IEEE 802.11b</option>
+              <option value="g">IEEE 802.11g</option>
+            </select>
+            <label class="setting" for="channel">Wireless Lan Channel</label>
+            <select name="channel" id="channel"></select>
+            <label class="setting" for="ssid">SSID</label>
+            <input type="text" name="ssid" id="ssid" value=""/>
+            <p>
+              SSID must be 3 to 32 characters.
+            </p>
+            <label class="setting" for="passphrase">Passphrase</label>
+            <input type="text" name="passphrase" id="passphrase" value=""/>
+            <p>
+              Passphrase must be 8 to 63 characters.
+            </p>
+          </form>
+          <button id="wifi-submit" name="wifi-submit">Update</button>
+        </div>
+        <div class="ui-body ui-body-a ui-corner-all setting-panel">
+          <h2>EtherNet</h2>
+          <label class="setting" >MAC Address</label>
+          <p id="eth0MACAddress"></p>
+          <label class="setting" >IP Address</label>
+          <p id="eth0IPAddress"></p>
+        </div>
+        <div data-role="popup" id="popup" data-overlay-theme="b" data-dismissible="false" data-position-to="window" style="min-width:300px;">
+          <div data-role="header">
+            <h1 id="popup-title"></h1>
+          </div>
+          <div role="main" class="ui-content">
+            <p id="popup-message"></p>
+            <a href="#" class="ui-btn" data-rel="back">Close</a>
+          </div>
+        </div>
+        <div class="ui-body ui-body-a ui-corner-all setting-panel">
+          <h2>SSH Service</h2>
+          <div>
+            <a href="#" id="ssh-on" class="ui-btn ui-btn-inline ui-shadow">ON</a>
+            <a href="#" id="ssh-off"class="ui-btn ui-btn-inline ui-shadow">OFF</a>
+          </div>
+        </div>
+      </div>
+      <div data-role="footer">
+        <h1 class="ui-title">&copy; AOR, LTD.</h1>
+      </div>
+    </div>
+  </body>
+</html>
+

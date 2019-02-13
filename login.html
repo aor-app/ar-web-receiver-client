@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>AR WEB RECEIVER: LOGIN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+    <script src="javascript/jquery-1.11.1.min.js"></script>
+    <script src="javascript/jquery.mobile-1.4.5.min.js"></script>
+    <script src="javascript/init.js"></script>
+    <script src="javascript/share.js"></script>
+    <script src="javascript/login.js"></script>
+  </head>
+  <body>
+    <div data-role="page" class="login-page" id="main" data-dom-cache="false">
+      <div data-role="header">
+        <h1>AR WEB RECEIVER</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <div class="login-main">
+          <div class="login-div">
+            <div class="ui-body ui-body-a ui-corner-all">
+              <h2>Login</h2>
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" value="" autocomplete="off" />
+              <button id="login" class="ui-shadow ui-btn ui-corner-all">Login</button>
+            </div>
+          </div>
+        </div>
+        <div data-role="popup" id="popup" data-overlay-theme="b" data-dismissible="false" data-position-to="window" style="min-width:300px;">
+          <div data-role="header">
+            <h1 id="popup-title"></h1>
+          </div>
+          <div role="main" class="ui-content">
+            <p id="popup-message"></p>
+            <a href="#" class="ui-btn" data-rel="back">Close</a>
+          </div>
+        </div>
+      </div>
+      <div data-role="footer" class="login-footer">
+        <h1 class="ui-title">&copy; AOR, LTD.</h1>
+      </div>
+    </div>
+  </body>
+</html>

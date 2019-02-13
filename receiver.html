@@ -1,0 +1,492 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>AR WEB RECEIVER</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+    <script src="javascript/jquery-1.11.1.min.js"></script>
+    <script src="javascript/jquery.mobile-1.4.5.min.js"></script>
+    <script src="javascript/init.js"></script>
+    <script src="javascript/share.js"></script>
+    <script src="javascript/menu.js"></script>
+
+    <script src="javascript/moment.js"></script>
+    <script src="javascript/Chart.min.js"></script>
+    <script src="javascript/sdr.js"></script>
+    <script src="javascript/mathbox-bundle.min.js"></script>
+    <script src="javascript/const.js"></script>
+    <script src="javascript/websocket.js"></script>
+    <script src="javascript/sound.js"></script>
+    <script src="javascript/waterfall_class.js"></script>
+    <script src="javascript/ar_receiver.js"></script>
+    <script src="javascript/receiver.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/openwebrx.css" />
+  </head>
+  <body>
+    <div data-role="page" class="login-page" id="main" data-dom-cache="false">
+      <div data-role="panel" id="menu-panel">
+        <ul data-role="listview">
+          <li><a href="#" id="receiver-button">AR WEB RECEIVER</a></li>
+          <li data-role="list-divider" role="heading">ADAPTER</li>
+          <li data-icon="gear"><a href="#" id="adapter-settings-button">Settings</a></li>
+          <li data-icon="power" id="shutdown"><a href="#">Shutdown</a></li>
+          <li data-icon="refresh" id="reboot"><a href="#">Reboot</a></li>
+        </ul>
+        <div data-role="popup" id="fn-menu-popup" data-overlay-theme="b" data-dismissible="false" data-position-to="window" style="min-width:300px;">
+          <div data-role="header">
+            <h1 id="fn-menu-popup-title"></h1>
+          </div>
+          <div role="main" class="ui-content">
+            <p id="fn-menu-popup-message"></p>
+            <a href="#" class="ui-btn" id="fn-menu-popup-close">Close</a>
+          </div>
+        </div>
+      </div>
+      <div data-role="header">
+        <a href="#menu-panel" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-bars">Menu</a>
+        <h1>AR WEB RECEIVER</h1>
+      </div>
+      <div role="main" class="ui-content adapter-setting-main">
+
+        <div id="reciever">
+          <div class="ui-body ui-body-a ui-corner-all receiver-panel">
+            <div class="receiver-frontpanel">
+              <div class="main">
+                <div class="main-inner-left">
+                  <div class="logo"><img src="images/AR-DV1_logo.png" /></div>
+                  <div class="display">
+                    <div class="display-inner">
+                      <div class="display-status">
+                        <span class="display-icon">VFO</span><span id="analog-receive-mode">FM</span><span id="ifbw">15k</span>
+                        <span class="display-icon" id="digital-enabled">D</span><span id="digital-decode-mode">DSTR</span>
+                        <span class="display-icon" id="auto">DA</span><span id="stepFrequency">100k+</span>
+                      </div>
+                      <div class="display-smeter" id="smeter"><span class="display-icon" id="squelchOpened">B</span><span id="smeter-value">Level</span></div>
+                      <div class="display-frequency">
+                        <dl class="vfo-main" id="vfo-A">
+                          <dt><p class="vfo-button" data-value="A">A</p></dt>
+                          <dd><p>1300.00000</p></dd>
+                        </dl>
+                        <dl class="vfo-sub" id="vfo-B">
+                          <dt><p class="vfo-button" data-value="B">B</p></dt>
+                          <dd><p>1299.99950</p></dd>
+                        </dl>
+                        <dl class="vfo-sub" id="vfo-Z">
+                          <dt><p class="vfo-button" data-value="Z">Z</p></dt>
+                          <dd><p>1288.88850</p></dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="frequency">
+                    <div class="commands-line">
+                      <a href="#" id="fn-frequency-10down" class="ui-btn ui-shadow ui-mini">&lt;&lt;10x</a>
+                      <a href="#" id="fn-frequency-1down" class="ui-btn ui-shadow ui-mini">&lt;</a>
+                      <a href="#" id="fn-frequency-1up" class="ui-btn ui-shadow ui-mini">&gt;</a>
+                      <a href="#" id="fn-frequency-10up" class="ui-btn ui-shadow ui-mini">10x&gt;&gt;</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="main-inner-right">
+                  <div class="commands">
+                    <div class="commands-line">
+                      <a href="#" class="ui-btn ui-shadow ui-mini key-pad" data-value="1">1</a>
+                      <a href="#" class="ui-btn ui-shadow ui-mini key-pad" data-value="2">2</a>
+                      <a href="#" class="ui-btn ui-shadow ui-mini key-pad" data-value="3">3</a>
+                    </div>
+                    <div class="commands-line">
+                      <a href="#" class="ui-btn ui-shadow ui-mini key-pad" data-value="4">4</a>
+                      <a href="#" class="ui-btn ui-shadow ui-mini key-pad" data-value="5">5</a>
+                      <a href="#" class="ui-btn ui-shadow ui-mini key-pad" data-value="6">6</a>
+                    </div>
+                    <div class="commands-line">
+                      <a href="#" class="ui-btn ui-shadow ui-mini key-pad" data-value="7">7</a>
+                      <a href="#" class="ui-btn ui-shadow ui-mini key-pad" data-value="8">8</a>
+                      <a href="#" class="ui-btn ui-shadow ui-mini key-pad" data-value="9">9</a>
+                    </div>
+                    <div class="commands-line">
+                      <a href="#" class="ui-btn ui-shadow ui-mini key-pad" data-value=".">.</a>
+                      <a href="#" class="ui-btn ui-shadow ui-mini key-pad" data-value="0">0</a>
+                      <a href="#" class="ui-btn ui-shadow ui-mini key-pad" data-value="ENT">ENT</a>
+                    </div>
+                    <div class="commands-line">
+                      <a href="#" class="ui-btn ui-shadow ui-mini key-pad" data-value="CLR">CLR</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="tabs">
+            <div data-role="navbar" class="receiver-nav">
+              <ul>
+                <li><a href="#" id="settings-panel-tab" class="panel-tab ui-btn-active">Settings</a></li>
+                <li><a href="#" id="log-panel-tab" class="panel-tab">Log</a></li>
+                <li><a href="#" id="spectrum-panel-tab" class="panel-tab">Spectrum</a></li>
+                <li><a href="#" id="waterfall-panel-tab" class="panel-tab">Waterfall</a></li>
+              </ul>
+            </div>
+            <div class="ui-body ui-body-a ui-corner-all view-panel" id="settings-panel">
+              <div class="setting-param">
+                <label>POWER ON/OFF</label>
+                <div data-role="fieldcontain">
+                  <select id="power" data-role="flipswitch">
+                    <option value="0">OFF</option>
+                    <option value="1">ON</option>
+                  </select>
+                </div>
+              </div>
+              <div class="setting-param">
+                <label>VOLUME</label>
+                <div class="slider">
+                  <input type="range" name="vol" id="vol" value="20" min="0" max="99"/>
+                </div>
+              </div>
+              <div class="setting-param">
+                <label>SQL</label>
+                <div class="slider">
+                  <input type="range" name="squelch-val" id="squelch-val" value="20" min="0" max="99"/>
+                </div>
+              </div>
+              <div class="setting-param">
+                <label>MODE</label>
+                <div id="mode-buttons">
+                </div>
+              </div>
+              <div class="setting-param">
+                <label>IF BW</label>
+                <div id="ifbw-buttons">
+                </div>
+              </div>
+              <div class="setting-param">
+                <label>STEP</label>
+                <div id="frequency-step-buttons">
+                </div>
+              </div>
+              <div class="setting-param">
+                <label>STEP ADJ</label>
+                <div id="frequency-step-adj-buttons">
+                </div>
+              </div>
+<!-- following lines added 2019/01/07 -->
+              <div class="setting-param" id="ctcss-block">
+                <label>CTCSS</label>
+                <p id="ctcss-val"> / </p>
+                <div id="ctcss-on">
+                  <select name="ctcss" id="ctcss">
+                    <option value="0" selected>OFF</option>
+                    <option value="1">CTCSS:ON</option>
+                    <option value="2">RTN:ON</option>
+                  </select>
+                </div>
+                <div>
+                  <select name="ctcss-frequency" id="ctcss-frequency">
+                    <option value="99" selected>SRCH</option>
+                    <option value="01">60.0</option>
+                    <option value="02">67.0</option>
+                    <option value="03">69.3</option>
+                    <option value="04">71.9</option>
+                    <option value="05">74.4</option>
+                    <option value="06">77.0</option>
+                    <option value="07">79.7</option>
+                    <option value="08">82.5</option>
+                    <option value="09">85.4</option>
+                    <option value="10">88.5</option>
+                    <option value="11">91.5</option>
+                    <option value="12">94.8</option>
+                    <option value="13">97.4</option>
+                    <option value="14">100.0</option>
+                    <option value="15">103.5</option>
+                    <option value="16">107.2</option>
+                    <option value="17">110.9</option>
+                    <option value="18">114.8</option>
+                    <option value="19">118.8</option>
+                    <option value="20">120.0</option>
+                    <option value="21">123.0</option>
+                    <option value="22">127.3</option>
+                    <option value="23">131.8</option>
+                    <option value="24">136.5</option>
+                    <option value="25">141.3</option>
+                    <option value="26">146.2</option>
+                    <option value="27">151.4</option>
+                    <option value="28">156.7</option>
+                    <option value="29">159.8</option>
+                    <option value="30">162.2</option>
+                    <option value="31">165.5</option>
+                    <option value="32">167.9</option>
+                    <option value="33">171.3</option>
+                    <option value="34">173.8</option>
+                    <option value="35">177.3</option>
+                    <option value="36">179.9</option>
+                    <option value="37">183.5</option>
+                    <option value="38">186.2</option>
+                    <option value="39">189.9</option>
+                    <option value="40">192.8</option>
+                    <option value="41">196.6</option>
+                    <option value="42">199.5</option>
+                    <option value="43">203.5</option>
+                    <option value="44">206.5</option>
+                    <option value="45">210.7</option>
+                    <option value="46">218.1</option>
+                    <option value="47">225.7</option>
+                    <option value="48">229.1</option>
+                    <option value="49">233.6</option>
+                    <option value="50">241.8</option>
+                    <option value="51">250.3</option>
+                    <option value="52">254.1</option>
+                  </select>
+                </div>
+              </div>
+              <div class="setting-param" id="dcs-block">
+                <label>DCS</label>
+                <p id="dcs-val">/</p>
+                <div id="dcs-on">
+                  <select name="dcs" id="dcs">
+                    <option value="0" selected>OFF</option>
+                    <option value="1">DCS:ON</option>
+                  </select>
+                </div>
+                <div>
+                  <select name="dcs-code" id="dcs-code">
+<option value="999" selected>SRCH</option>
+<option value="017">017</option>
+<option value="023">023</option>
+<option value="025">025</option>
+<option value="026">026</option>
+<option value="031">031</option>
+<option value="032">032</option>
+<option value="036">036</option>
+<option value="043">043</option>
+<option value="047">047</option>
+<option value="050">050</option>
+<option value="051">051</option>
+<option value="053">053</option>
+<option value="054">054</option>
+<option value="065">065</option>
+<option value="071">071</option>
+<option value="072">072</option>
+<option value="073">073</option>
+<option value="074">074</option>
+<option value="114">114</option>
+<option value="115">115</option>
+<option value="116">116</option>
+<option value="122">122</option>
+<option value="125">125</option>
+<option value="131">131</option>
+<option value="132">132</option>
+<option value="134">134</option>
+<option value="143">143</option>
+<option value="145">145</option>
+<option value="152">152</option>
+<option value="155">155</option>
+<option value="156">156</option>
+<option value="162">162</option>
+<option value="165">165</option>
+<option value="172">172</option>
+<option value="174">174</option>
+<option value="205">205</option>
+<option value="212">212</option>
+<option value="223">223</option>
+<option value="225">225</option>
+<option value="226">226</option>
+<option value="243">243</option>
+<option value="244">244</option>
+<option value="245">245</option>
+<option value="246">246</option>
+<option value="251">251</option>
+<option value="252">252</option>
+<option value="255">255</option>
+<option value="261">261</option>
+<option value="263">263</option>
+<option value="265">265</option>
+<option value="266">266</option>
+<option value="271">271</option>
+<option value="274">274</option>
+<option value="306">306</option>
+<option value="311">311</option>
+<option value="315">315</option>
+<option value="325">325</option>
+<option value="331">331</option>
+<option value="332">332</option>
+<option value="343">343</option>
+<option value="346">346</option>
+<option value="351">351</option>
+<option value="356">356</option>
+<option value="364">364</option>
+<option value="365">365</option>
+<option value="371">371</option>
+<option value="411">411</option>
+<option value="412">412</option>
+<option value="413">413</option>
+<option value="423">423</option>
+<option value="431">431</option>
+<option value="432">432</option>
+<option value="445">445</option>
+<option value="446">446</option>
+<option value="452">452</option>
+<option value="454">454</option>
+<option value="455">455</option>
+<option value="462">462</option>
+<option value="464">464</option>
+<option value="465">465</option>
+<option value="466">466</option>
+<option value="503">503</option>
+<option value="506">506</option>
+<option value="516">516</option>
+<option value="523">523</option>
+<option value="526">526</option>
+<option value="532">532</option>
+<option value="546">546</option>
+<option value="565">565</option>
+<option value="606">606</option>
+<option value="612">612</option>
+<option value="624">624</option>
+<option value="627">627</option>
+<option value="631">631</option>
+<option value="632">632</option>
+<option value="654">654</option>
+<option value="662">662</option>
+<option value="664">664</option>
+<option value="703">703</option>
+<option value="712">712</option>
+<option value="723">723</option>
+<option value="731">731</option>
+<option value="732">732</option>
+<option value="734">734</option>
+<option value="743">743</option>
+<option value="754">754</option>
+                  </select>
+                </div>
+              </div>
+              <div class="setting-param" id="dcr-encryption-code-block">
+                <label>ENC.CODE</label>
+                <div>
+                  <p id="dcr-encryption-code-disp">00000</p>
+                </div>
+                <div data-role="controlgroup" data-type="horizontal">
+                  <button id='getDCREncryptionCode'>Get</button>
+                  <input type="text" name="dcr-encryption-code" id="dcr-encryption-code" data-wrapper-class="controlgroup-textinput ui-btn" value="00000"></input>
+                  <button id='setDCREncryptionCode'>Set</button>
+                </div>
+                <p>ENC.CODE range: 00000 ... 32767</p>
+              </div>
+<!-- above lines added 2019/01/06 -->
+              <div class="setting-param">
+                <label>DIGI.DISP</label>
+                <div data-role="fieldcontain">
+                  <select id="digital-data-output" data-role="flipswitch">
+                    <option value="0">OFF</option>
+                    <option value="1">ON</option>
+                  </select>
+                </div>
+              </div>
+              <hr />
+              <h3>SPECTRUM PRAM</h3>
+              <div class="setting-param">
+                <label>SPAN</label>
+                <div data-role="controlgroup" data-type="horizontal">
+                  <input type="text" name="spectrum-span" id="spectrum-span" data-wrapper-class="controlgroup-textinput ui-btn" value="10.0"></input><button>MHz</button>
+                </div>
+                <p>Input range: 0.4MHz-10MHz</p>
+              </div>
+              <div class="setting-param">
+                <label>MODE</label>
+                <p id="spectrum-mode">FM</p>
+              </div>
+              <div class="setting-param">
+                <label>IFBW</label>
+                <div>
+                  <select name="spectrum-ifbw" id="spectrum-ifbw">
+                    <option value="default">AUTO</option>
+                    <option value="0">200kHz</option>
+                    <option value="1">100kHz</option>
+                    <option value="2">30kHz</option>
+                    <option value="3">15kHz</option>
+                    <option value="4">6kHz</option>
+                  </select>
+                </div>
+                <p>AUTO is determined by SpectrumStepFrequency.</p>
+                <div>
+                  <p>SpetctrumStepFrequency &gt; 100kHz : 200kHz</p>
+                  <p>100kHz =&gt; SpetctrumStepFrequency &gt; 50kHz : 100kHz</p>
+                  <p>50kHz =&gt; SpetctrumStepFrequency &gt; 12kHz : 30kHz</p>
+                  <p>12kHz =&gt; SpetctrumStepFrequency &gt; 6kHz : 15kHz</p>
+                  <p>SpetctrumStepFrequency &lt; 6kHz : 6kHz</p>
+                </div>
+              </div>
+              <div class="setting-param">
+                <label>WAIT TIME</label>
+                <div data-role="controlgroup" data-type="horizontal">
+                  <input type="text" name="spectrum-wait-time" id="spectrum-wait-time" data-wrapper-class="controlgroup-textinput ui-btn" value="50"></input><button>ms</button>
+                </div>
+                <p>Default: 50ms</p>
+              </div>
+              <div class="setting-param">
+                <label>NUMBER OF DOTS</label>
+                <p><span id="spectrum-dots">80</span>dots</p>
+              </div>
+            </div>
+            <div class="ui-body ui-body-a ui-corner-all view-panel" id="spectrum-panel">
+              <div class="spectrum-chart-container" style="position: relative; width: 100%; height: 55vh; overflow: auto;">
+                <canvas id="spectrum-chart" class="spectrum-chart"></canvas>
+              </div>
+            </div>
+            <div class="ui-body ui-body-a ui-corner-all view-panel" id="log-panel">
+              <table>
+                <thead class="receiver-log-head">
+                  <tr>
+                    <th class="receiver-log-datetime">DATE TIME</th>
+                    <th class="receiver-log-duration">DUR</th>
+                    <th class="receiver-log-frequency">FREQ</th>
+                    <th class="receiver-log-mode">MODE</th>
+                    <th class="receiver-log-level">LEV</th>
+                    <th class="receiver-log-digitalInfo">DIGI_INFO</th>
+                  </tr>
+                </thead>
+                <tbody id="receiver-log" class="receiver-log-body">
+                </tbody>
+              </table>
+            </div>
+            <div class="ui-body ui-body-a ui-corner-all view-panel" id="waterfall-panel">
+              <div id="webrx-page-container">
+                <div id="webrx-main-container">
+                  <div id="openwebrx-scale-container">
+                    <canvas id="openwebrx-scale-canvas" width="0" height="0"></canvas>
+                  </div>
+                  <div id="openwebrx-mathbox-container"> </div>
+                  <div id="webrx-canvas-container">
+                    <div id="openwebrx-phantom-canvas"></div>
+                    <!-- add canvas here by javascript -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-role="popup" id="popup" data-overlay-theme="b" data-dismissible="false" data-position-to="window" style="min-width:300px;">
+          <div data-role="header">
+            <h1 id="popup-title"></h1>
+          </div>
+          <div role="main" class="ui-content">
+            <p id="popup-message"></p>
+            <a href="#" class="ui-btn" data-rel="back">Close</a>
+          </div>
+        </div>
+      </div>
+      <div data-role="footer">
+        <h1 class="ui-title">&copy; AOR, LTD.</h1>
+      </div>
+    </div>
+  </body>
+</html>
+
