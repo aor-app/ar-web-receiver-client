@@ -91,6 +91,9 @@ class ARReceiver {
         case 'T_DM':
             setModeCode = '080';
             break;
+        case 'T_TC':
+            setModeCode = '090';
+            break;
         case 'FM':
             setModeCode = '0F0';
             break;

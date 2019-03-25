@@ -186,7 +186,19 @@ const MODE = {
                 { id: '1', text: '100kHz'},
                 { id: '2', text: '30kHz'},
                 { id: '3', text: '15kHz'},
-                { id: '4', text: '6kHz'}
+                { id: '4', text: '6kHz'},
+                { id: '5', text: ' '}
+            ]
+          },
+    T_TC: { value: '008',
+            name: 'T-TC',
+            ifbw: [
+                { id: '0', text: '200kHz'},
+                { id: '1', text: '100kHz'},
+                { id: '2', text: '30kHz'},
+                { id: '3', text: '15kHz'},
+                { id: '4', text: '6kHz'},
+                { id: '5', text: ' '}
             ]
           },
     AUTO: { value: '128',
@@ -223,6 +235,7 @@ const MODEL = {
                 MODE.DPMR,
                 MODE.DMR,
                 MODE.T_DM,
+                MODE.T_TC,
                 MODE.AUTO
               ],
         squelchType: [
@@ -248,6 +261,7 @@ const MODEL = {
                 MODE.DPMR,
                 MODE.DMR,
                 MODE.T_DM,
+                MODE.T_TC,
                 MODE.AUTO
               ],
         squelchType: [
@@ -649,6 +663,9 @@ const DIGITAL_DECODE_READING_MODE = {
          },
     T_DM: { code: '8',
             name: 'T-DM'
+          },
+    T_TC: { code: '9',
+            name: 'T-TC'
           }
 };
 const DIGITAL_DECODE_SETTING_MODE = {
@@ -677,7 +694,10 @@ const DIGITAL_DECODE_SETTING_MODE = {
            name: 'DMR'
          },
     T_DM: { code: '8',
-            name: 'T_DM'
+            name: 'T-DM'
+          },
+    T_TC: { code: '9',
+            name: 'T-TC'
           },
     FM: { code: 'F',
           name: ''
