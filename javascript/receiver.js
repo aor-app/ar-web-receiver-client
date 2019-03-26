@@ -285,7 +285,7 @@ const updateReceiverDisplay = (receiverState) => {
 // above lines added 2019/01/06
 // following lines added 2019/03/26 for T-TC Slot button
     if (receiverState.mode && receiverState.IFBW){
-        if (receiverState.mode.digitalDecodeSettingMode.name == 'T-TC'){
+        if (receiverState.mode.digitalDecodeSettingMode.name == 'T_TC'){
             $('#ttc-slot-block').show();
         }else{
             $('#ttc-slot-block').hide();
@@ -1143,6 +1143,18 @@ $(document).on('click', '#getDCREncryptionCode', () => {
 // above lines added 2019/01/06
 // following lines added 2019/03/26
 $(document).on('click', '#T-TC-slot-auto', () => {
-    arReceiver.setTTCSlot($('#T-TC-slot-auto').val());
+    arReceiver.setTTCSlot(0);
+});
+$(document).on('click', '#T-TC-slot-1', () => {
+    arReceiver.setTTCSlot(1);
+});
+$(document).on('click', '#T-TC-slot-2', () => {
+    arReceiver.setTTCSlot(2);
+});
+$(document).on('click', '#T-TC-slot-3', () => {
+    arReceiver.setTTCSlot(3);
+});
+$(document).on('click', '#T-TC-slot-4', () => {
+    arReceiver.setTTCSlot(4);
 });
 // above lines added 2019/03/26

@@ -172,33 +172,19 @@ const MODE = {
     DMR:  { value: '006',
             name: 'DMR',
             ifbw: [
-                { id: '0', text: '200kHz'},
-                { id: '1', text: '100kHz'},
-                { id: '2', text: '30kHz'},
-                { id: '3', text: '15kHz'},
                 { id: '4', text: '6kHz'}
             ]
           },
     T_DM: { value: '007',
-            name: 'T-DM',
+            name: 'T_DM',
             ifbw: [
-                { id: '0', text: '200kHz'},
-                { id: '1', text: '100kHz'},
-                { id: '2', text: '30kHz'},
-                { id: '3', text: '15kHz'},
-                { id: '4', text: '6kHz'},
-                { id: '5', text: ' '}
+                { id: '5', text: 'T-DM'}
             ]
           },
     T_TC: { value: '008',
-            name: 'T-TC',
+            name: 'T_TC',
             ifbw: [
-                { id: '0', text: '200kHz'},
-                { id: '1', text: '100kHz'},
-                { id: '2', text: '30kHz'},
-                { id: '3', text: '15kHz'},
-                { id: '4', text: '6kHz'},
-                { id: '5', text: ' '}
+                { id: '5', text: 'T-TC'}
             ]
           },
     AUTO: { value: '128',
@@ -662,10 +648,10 @@ const DIGITAL_DECODE_READING_MODE = {
            name: 'DMR'
          },
     T_DM: { code: '8',
-            name: 'T-DM'
+            name: 'T_DM'
           },
     T_TC: { code: '9',
-            name: 'T-TC'
+            name: 'T_TC'
           }
 };
 const DIGITAL_DECODE_SETTING_MODE = {
@@ -694,10 +680,10 @@ const DIGITAL_DECODE_SETTING_MODE = {
            name: 'DMR'
          },
     T_DM: { code: '8',
-            name: 'T-DM'
+            name: 'T_DM'
           },
     T_TC: { code: '9',
-            name: 'T-TC'
+            name: 'T_TC'
           },
     FM: { code: 'F',
           name: ''

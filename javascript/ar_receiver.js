@@ -168,8 +168,11 @@ class ARReceiver {
     setTTCSlot (value, retryCount=0) {
         return this.sendCommand('POST', 'ttcslot', { value: value }, retryCount);
     }
+    getTTCSlot (retryCount=0) {
+        return this.sendCommand('GET', 'ttcslot', null, retryCount);
+    }
 // above lines added 2019/03/26
-getDigitalDataOutput (retryCount=0) {
+	getDigitalDataOutput (retryCount=0) {
         return this.sendCommand('GET', 'digital_data_output', null, retryCount);
     }
     getSpectrumSpan (retryCount=0) {
