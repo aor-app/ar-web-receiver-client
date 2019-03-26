@@ -247,6 +247,7 @@ class ReceivingMode {
         for(let key in DIGITAL_DECODE_READING_MODE){
             if (DIGITAL_DECODE_READING_MODE[key].code == this._mode.substr(0,1)){
                 result = DIGITAL_DECODE_READING_MODE[key];
+                result.key = key;
                 break;
             }
         }
@@ -257,6 +258,7 @@ class ReceivingMode {
         for(let key in DIGITAL_DECODE_SETTING_MODE){
             if (DIGITAL_DECODE_SETTING_MODE[key].code == this._mode.substr(1,1)){
                 result = DIGITAL_DECODE_SETTING_MODE[key];
+                result.key = key;
                 break;
             }
         }
@@ -267,6 +269,7 @@ class ReceivingMode {
         for(let key in ANALOG_RECEIVE_MODE){
             if (ANALOG_RECEIVE_MODE[key].code == this._mode.substr(2,1)){
                 result = ANALOG_RECEIVE_MODE[key];
+                result.key = key;
                 break;
             }
         }

@@ -197,9 +197,11 @@ const updateReceiverDisplay = (receiverState) => {
             if ( receiverState.mode.digitalDecodeSettingMode.name == 'AUTO') {
                 $('#auto').css('visibility', 'visible');
                 $('#digital-decode-mode').text(receiverState.mode.digitalDecodeReadingMode.name);
+                $('#digital-decode-mode').data('key', receiverState.mode.digitalDecodeReadingMode.key);
             }else{
                 $('#auto').css('visibility', 'hidden');
                 $('#digital-decode-mode').text(receiverState.mode.digitalDecodeSettingMode.name);
+                $('#digital-decode-mode').data('key', receiverState.mode.digitalDecodeSettingMode.key);
             }
         }
         if ( receiverState.mode.digitalModeEnable ){
@@ -209,6 +211,7 @@ const updateReceiverDisplay = (receiverState) => {
         }
         if (receiverState.mode.analogReceiveMode){
             $('#analog-receive-mode').text(receiverState.mode.analogReceiveMode.name);
+            $('#analog-receive-mode').data('key', receiverState.mode.analogReceiveMode.key);
         }
     }
     if (receiverState.IFBW ){
@@ -468,7 +471,6 @@ const updateReceiverViewProcess = async (data) => {
 const setLogMode = async (frequency) => {
     let receiverStateId = null;
     viewController.updateMode('OFF');
-
     await viewController.waitIDLE();
     await restoreRceiverState(frequency);
 
@@ -716,9 +718,9 @@ const setSpectrumMode = async () => {
     if ($('#auto').css('visibility') == 'visible') {
         restoreMode = 'AUTO';
     }else if ($('#digital-decode-mode').text() != '') {
-        restoreMode = $('#digital-decode-mode').text();
+        restoreMode = $('#digital-decode-mode').data('key');
     }else {
-        restoreMode = $('#analog-receive-mode').text();
+        restoreMode = $('#analog-receive-mode').data('key');
     }
     let restoreFrequency =  newCenterFrequency;
     let ifbw = $('#ifbw').data('ifbw-id');
@@ -777,7 +779,6 @@ const startARReceiverClient = async (session) => {
     showLoadingAnimation('Power on receiver...');
     viewController.updateMode('OFF');
     receiver_init();
-
     try {
         arReceiver = new ARReceiver();
         const result = await arReceiver.powerOn();
@@ -819,7 +820,6 @@ const startARReceiverClient = async (session) => {
             }
         }
         setStepAdjustButton(stepFrequency);
-
         for(let vfoinfo of vfoInfo.value){
             let frequnecy = '';
             if ( vfoinfo.frequency ){
