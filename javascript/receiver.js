@@ -283,6 +283,15 @@ const updateReceiverDisplay = (receiverState) => {
         }
     }
 // above lines added 2019/01/06
+// following lines added 2019/03/26 for T-TC Slot button
+    if (receiverState.mode && receiverState.IFBW){
+        if (receiverState.mode.digitalDecodeSettingMode.name == 'T-TC'){
+            $('#ttc-slot-block').show();
+        }else{
+            $('#ttc-slot-block').hide();
+        }
+    }
+// above lines added 2019/03/26
 };
 const updateReceiverLog = (log) => {
     const durationText = (durationSec) => {
