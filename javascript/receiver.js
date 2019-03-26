@@ -1141,3 +1141,8 @@ $(document).on('click', '#getDCREncryptionCode', () => {
     $('#dcr-encryption-code').val($('#dcr-encryption-code-disp').text());
 });
 // above lines added 2019/01/06
+// following lines added 2019/03/26
+$(document).on('click', '#T-TC-slot-buttons', () => {
+    arReceiver.setTTCSlot($('#T-TC-slot-buttons').val());
+});
+// above lines added 2019/03/26
