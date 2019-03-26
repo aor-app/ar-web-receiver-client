@@ -166,7 +166,7 @@ class ARReceiver {
 // above lines added 2019/01/06
 // following lines added 2019/03/26
     setTTCSlot (value, retryCount=0) {
-        return this.sendCommand('POST', 'ctcss', { value: value }, retryCount);
+        return this.sendCommand('POST', 'ttcslot', { value: value }, retryCount);
     }
 // above lines added 2019/03/26
 getDigitalDataOutput (retryCount=0) {
