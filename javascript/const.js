@@ -176,7 +176,7 @@ const MODE = {
             ]
           },
     T_DM: { value: '007',
-            name: 'T-DM',
+            name: 'T_DM',
             ifbw: [
                 { id: '5', text: 'T-DM'}
             ]
@@ -648,10 +648,10 @@ const DIGITAL_DECODE_READING_MODE = {
            name: 'DMR'
          },
     T_DM: { code: '8',
-            name: 'T-DM'
+            name: 'T_DM'
           },
     T_TC: { code: '9',
-            name: 'T-TC'
+            name: 'T_TC'
           }
 };
 const DIGITAL_DECODE_SETTING_MODE = {
@@ -680,10 +680,10 @@ const DIGITAL_DECODE_SETTING_MODE = {
            name: 'DMR'
          },
     T_DM: { code: '8',
-            name: 'T-DM'
+            name: 'T_DM'
           },
     T_TC: { code: '9',
-            name: 'T-TC'
+            name: 'T_TC'
           },
     FM: { code: 'F',
           name: ''
