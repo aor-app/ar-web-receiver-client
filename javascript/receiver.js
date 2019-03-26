@@ -1142,7 +1142,7 @@ $(document).on('click', '#getDCREncryptionCode', () => {
 });
 // above lines added 2019/01/06
 // following lines added 2019/03/26
-$(document).on('click', '#T-TC-slot-buttons', () => {
-    arReceiver.setTTCSlot($('#T-TC-slot-buttons').val());
+$(document).on('click', '#T-TC-slot-auto', () => {
+    arReceiver.setTTCSlot($('#T-TC-slot-auto').val());
 });
 // above lines added 2019/03/26
