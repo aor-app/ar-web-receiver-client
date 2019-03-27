@@ -1,4 +1,4 @@
-/*! receiver.js | 2019/01 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
+/*! receiver.js | v1903A 2019/03 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
 class ViewController {
     constructor(mode = 'OFF'){
         this.mode = mode;
