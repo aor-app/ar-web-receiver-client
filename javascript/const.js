@@ -113,60 +113,36 @@ const MODE = {
     DSTR: { value: '000',
             name: 'DSTR',
             ifbw: [
-              { id: '0', text: '200kHz'},
-              { id: '1', text: '100kHz'},
-              { id: '2', text: '30kHz'},
-              { id: '3', text: '15kHz'},
-              { id: '4', text: '6kHz'}
+              { id: '3', text: '15kHz'}
             ]
           },
     YAES: { value: '001',
             name: 'YAES',
             ifbw: [
-              { id: '0', text: '200kHz'},
-              { id: '1', text: '100kHz'},
-              { id: '2', text: '30kHz'},
-              { id: '3', text: '15kHz'},
               { id: '4', text: '6kHz'}
             ]
           },
     ALIN: { value: '002',
             name: 'ALIN',
             ifbw: [
-              { id: '0', text: '200kHz'},
-              { id: '1', text: '100kHz'},
-              { id: '2', text: '30kHz'},
-              { id: '3', text: '15kHz'},
-              { id: '4', text: '6kHz'}
+              { id: '3', text: '15kHz'}
             ]
           },
     D_CR: { value: '003',
             name: 'D-CR',
             ifbw: [
-              { id: '0', text: '200kHz'},
-              { id: '1', text: '100kHz'},
-              { id: '2', text: '30kHz'},
-              { id: '3', text: '15kHz'},
               { id: '4', text: '6kHz'}
             ]
           },
     P_25: { value: '004',
             name: 'P-25',
             ifbw: [
-                { id: '0', text: '200kHz'},
-                { id: '1', text: '100kHz'},
-                { id: '2', text: '30kHz'},
-                { id: '3', text: '15kHz'},
-                { id: '4', text: '6kHz'}
+                { id: '3', text: '15kHz'}
             ]
           },
     DPMR: { value: '005',
             name: 'dPMR',
             ifbw: [
-                { id: '0', text: '200kHz'},
-                { id: '1', text: '100kHz'},
-                { id: '2', text: '30kHz'},
-                { id: '3', text: '15kHz'},
                 { id: '4', text: '6kHz'}
             ]},
     DMR:  { value: '006',

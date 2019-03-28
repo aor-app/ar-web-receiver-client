@@ -289,6 +289,18 @@ const updateReceiverDisplay = (receiverState) => {
 // following lines added 2019/03/26 for T-TC Slot button
     if (receiverState.mode && receiverState.IFBW){
         if (receiverState.mode.digitalDecodeSettingMode.name == 'T-TC'){
+	        let TS_val = receiverState.TTCSlot.value;
+	        let TS_sel = TS_val.slice(1);
+	        if (TS_sel == '0') {
+		        TS_sel = 'AUTO';
+	        }
+	        let TS_rcvd = TS_val.slice(0,1);
+	        if (TS_rcvd == '0') {
+		        TS_rcvd = '';
+	        }else{
+		        TS_rcvd = ' [' + TS_rcvd + ']';
+	        }
+            $('#ttc-slot-number').text(TS_sel + TS_rcvd);
             $('#ttc-slot-block').show();
         }else{
             $('#ttc-slot-block').hide();
@@ -403,6 +415,12 @@ const getReceiverViewInfo = async (data, digitalAdditionalInfo) => {
         DCREncryptionCode = null;
     }
 // above lines added 2019/01/07
+// following lines added 2019/03/27
+    let TTCSlot = await arReceiver.getTTCSlot();
+    if (TTCSlot.code != 0){
+        TTCSlot = null;
+    }
+// above lines added 2019/03/27
     const duration = (startTime, endTime) => {
         return  Math.floor((endTime.getTime() - startTime.getTime()) / 1000);
     };
@@ -468,6 +486,7 @@ const getReceiverViewInfo = async (data, digitalAdditionalInfo) => {
         DCS: DCS,
         DCSCode: DCSCode,
         DCREncryptionCode: DCREncryptionCode,
+        TTCSlot: TTCSlot,
         // above lines added 2019/01/06
         log: log
     };
