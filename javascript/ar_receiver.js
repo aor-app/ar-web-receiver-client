@@ -1,4 +1,4 @@
-/*! ar_receiver.js | 2019/01 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
+/*! ar_receiver.js | v1903A 2019/03 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
 class ARReceiver {
     constructor(){
         this.log = null;
@@ -91,6 +91,9 @@ class ARReceiver {
         case 'T_DM':
             setModeCode = '080';
             break;
+        case 'T_TC':
+            setModeCode = '090';
+            break;
         case 'FM':
             setModeCode = '0F0';
             break;
@@ -161,7 +164,15 @@ class ARReceiver {
         return this.sendCommand('GET', 'dcr_encryption_code', null, retryCount);
     }
 // above lines added 2019/01/06
-    getDigitalDataOutput (retryCount=0) {
+// following lines added 2019/03/26
+    setTTCSlot (value, retryCount=0) {
+        return this.sendCommand('POST', 'ttcslot', { value: value }, retryCount);
+    }
+    getTTCSlot (retryCount=0) {
+        return this.sendCommand('GET', 'ttcslot', null, retryCount);
+    }
+// above lines added 2019/03/26
+	getDigitalDataOutput (retryCount=0) {
         return this.sendCommand('GET', 'digital_data_output', null, retryCount);
     }
     getSpectrumSpan (retryCount=0) {

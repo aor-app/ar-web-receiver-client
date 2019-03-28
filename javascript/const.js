@@ -1,4 +1,4 @@
-/*! const.js | 2019/01 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
+/*! const.js | v1903A 2019/03 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
 const VERSION = '1.1.1';
 const MEMORY_BANK_NUM = 40;
 const MEMORY_CHANNEL_NUM = 50;
@@ -113,80 +113,54 @@ const MODE = {
     DSTR: { value: '000',
             name: 'DSTR',
             ifbw: [
-              { id: '0', text: '200kHz'},
-              { id: '1', text: '100kHz'},
-              { id: '2', text: '30kHz'},
-              { id: '3', text: '15kHz'},
-              { id: '4', text: '6kHz'}
+              { id: '3', text: '15kHz'}
             ]
           },
     YAES: { value: '001',
             name: 'YAES',
             ifbw: [
-              { id: '0', text: '200kHz'},
-              { id: '1', text: '100kHz'},
-              { id: '2', text: '30kHz'},
-              { id: '3', text: '15kHz'},
               { id: '4', text: '6kHz'}
             ]
           },
     ALIN: { value: '002',
             name: 'ALIN',
             ifbw: [
-              { id: '0', text: '200kHz'},
-              { id: '1', text: '100kHz'},
-              { id: '2', text: '30kHz'},
-              { id: '3', text: '15kHz'},
-              { id: '4', text: '6kHz'}
+              { id: '3', text: '15kHz'}
             ]
           },
     D_CR: { value: '003',
             name: 'D-CR',
             ifbw: [
-              { id: '0', text: '200kHz'},
-              { id: '1', text: '100kHz'},
-              { id: '2', text: '30kHz'},
-              { id: '3', text: '15kHz'},
               { id: '4', text: '6kHz'}
             ]
           },
     P_25: { value: '004',
             name: 'P-25',
             ifbw: [
-                { id: '0', text: '200kHz'},
-                { id: '1', text: '100kHz'},
-                { id: '2', text: '30kHz'},
-                { id: '3', text: '15kHz'},
-                { id: '4', text: '6kHz'}
+                { id: '3', text: '15kHz'}
             ]
           },
     DPMR: { value: '005',
             name: 'dPMR',
             ifbw: [
-                { id: '0', text: '200kHz'},
-                { id: '1', text: '100kHz'},
-                { id: '2', text: '30kHz'},
-                { id: '3', text: '15kHz'},
                 { id: '4', text: '6kHz'}
             ]},
     DMR:  { value: '006',
             name: 'DMR',
             ifbw: [
-                { id: '0', text: '200kHz'},
-                { id: '1', text: '100kHz'},
-                { id: '2', text: '30kHz'},
-                { id: '3', text: '15kHz'},
                 { id: '4', text: '6kHz'}
             ]
           },
     T_DM: { value: '007',
             name: 'T-DM',
             ifbw: [
-                { id: '0', text: '200kHz'},
-                { id: '1', text: '100kHz'},
-                { id: '2', text: '30kHz'},
-                { id: '3', text: '15kHz'},
-                { id: '4', text: '6kHz'}
+                { id: '5', text: 'T-DM'}
+            ]
+          },
+    T_TC: { value: '008',
+            name: 'T-TC',
+            ifbw: [
+                { id: '5', text: 'T-TC'}
             ]
           },
     AUTO: { value: '128',
@@ -223,6 +197,7 @@ const MODEL = {
                 MODE.DPMR,
                 MODE.DMR,
                 MODE.T_DM,
+                MODE.T_TC,
                 MODE.AUTO
               ],
         squelchType: [
@@ -248,6 +223,7 @@ const MODEL = {
                 MODE.DPMR,
                 MODE.DMR,
                 MODE.T_DM,
+                MODE.T_TC,
                 MODE.AUTO
               ],
         squelchType: [
@@ -649,6 +625,9 @@ const DIGITAL_DECODE_READING_MODE = {
          },
     T_DM: { code: '8',
             name: 'T-DM'
+          },
+    T_TC: { code: '9',
+            name: 'T-TC'
           }
 };
 const DIGITAL_DECODE_SETTING_MODE = {
@@ -677,7 +656,10 @@ const DIGITAL_DECODE_SETTING_MODE = {
            name: 'DMR'
          },
     T_DM: { code: '8',
-            name: 'T_DM'
+            name: 'T-DM'
+          },
+    T_TC: { code: '9',
+            name: 'T-TC'
           },
     FM: { code: 'F',
           name: ''
