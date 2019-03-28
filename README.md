@@ -13,7 +13,7 @@ This function is compatible with AR-DV1 firmware 1903A or later.
 The following bugs have been fixed:
  - fixed restore mode.
 
-## Instalation  
+## Installation  
  - Install on /home/aor/ar-web-receiver-client of your web adapter or on any web server.  
  - If installing on your web server outside the adapter, describe the URL of the web API accessed from your tablet in the ** *javascript/init.js* ** of the web application as follows.  
 	e.g. const SERVER_URL=‘192.168.1.25:3000’;  
