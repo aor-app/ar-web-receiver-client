@@ -408,8 +408,9 @@ p.version{
 }
 
 .receiver-frontpanel .main .main-inner-left .display .display-frequency dl.vfo-main dd {
-    font-size: xx-large;
-    font-weight: normal;
+/*     font-size: xx-large; */
+    font-size: 130%;
+    font-weight: bold;
 }
 .receiver-frontpanel .main .main-inner-left .display span.display-icon {
     display: inline-block;

@@ -7,11 +7,8 @@
     font-size: 60%;
 }
 .receiver-frontpanel .main .main-inner-left .display .display-inner div.display-status span {
-    font-size: 60%;
+    font-size: 56%;
 }
 .receiver-frontpanel .main .main-inner-left .display .display-inner .display-status span {
     margin-right: 0;
-}
-.receiver-frontpanel .main .main-inner-left .display .display-inner .display-frequency .vfo-main dd p {
-    font-size: 70%;
 }
