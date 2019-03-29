@@ -1,0 +1,8 @@
+/* custom_402.css | v1903A 2019/03 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
+@charset "utf-8";
+.receiver-frontpanel .main .main-inner-left .display .display-inner .display-status span#stepFrequency {
+    visibility: hidden;
+}
+.receiver-frontpanel .main .main-inner-left .display .display-inner .display-frequency .vfo-main dd p {
+    font-size: 60%;
+}

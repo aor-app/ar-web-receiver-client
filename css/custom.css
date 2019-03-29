@@ -1,3 +1,4 @@
+/* custom.css | v1903A 2019/03 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
 /* setting */
 @media screen and (min-width: 1024px) {
     .adapter-setting-main {
@@ -275,6 +276,9 @@ p.version{
 }
 .receiver-nav {
     margin: auto;
+}
+.receiver-panel {
+    min-height: 260px;
 }
 .receiver-frontpanel {
     display: -webkit-flex;
