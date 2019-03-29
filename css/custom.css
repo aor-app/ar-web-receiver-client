@@ -388,10 +388,10 @@ p.version{
     float: left;
     width: 10%;
 }
-.receiver-frontpanel .main .main-inner-left .display .display-frequency dd>p{
+.receiver-frontpanel .main .main-inner-left .display .display-frequency dd p{
     margin: 0;
 }
-.receiver-frontpanel .main .main-inner-left .display .display-frequency dl.vfo-sub dd > p{
+.receiver-frontpanel .main .main-inner-left .display .display-frequency dl.vfo-sub dd p{
     padding: 0.5em;
 }
 

@@ -6,9 +6,6 @@
 .receiver-frontpanel div.main {
     font-size: 60%;
 }
-.receiver-frontpanel .main .main-inner-left .display .display-inner div.display-status span {
-    font-size: 56%;
-}
 .receiver-frontpanel .main .main-inner-left .display .display-inner .display-status span {
     margin-right: 0;
 }
