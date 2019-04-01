@@ -7,7 +7,7 @@ Suitable for iPad Safari but not tuned to other browsers or small display sizes.
 ---
 
 ## RELEASE NOTES
-### v1903A
+### v1904A
 The following feature has been added:
  - Addition of T-TC mode (for Tetra Traffic Channel).  
 This function is compatible with AR-DV1 firmware 1903A or later.
@@ -16,6 +16,8 @@ This function is compatible with AR-DV1 firmware 1903A or later.
 
 The following bugs have been fixed:
  - fixed restore mode.
+ - Cleaned up the code.
+
 
 ---
 ## Installation  
