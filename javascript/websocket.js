@@ -1,4 +1,4 @@
-/*! websocket.js | 2019/01 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
+/*! websocket.js | v1904B 2019/04 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
 let ws = null;
 const ws_url = `ws://${SERVER_URL}`;
 const receiver_init = () => {

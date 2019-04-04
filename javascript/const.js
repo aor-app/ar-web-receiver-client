@@ -1,4 +1,4 @@
-/*! const.js | v1903A 2019/03 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
+/*! const.js | v1904B 2019/04 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
 const VERSION = '1.1.1';
 const MEMORY_BANK_NUM = 40;
 const MEMORY_CHANNEL_NUM = 50;

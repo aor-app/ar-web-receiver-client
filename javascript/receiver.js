@@ -1,4 +1,4 @@
-/*! receiver.js | v1903A 2019/03 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
+/*! receiver.js | v1904B 2019/04 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
 class ViewController {
     constructor(mode = 'OFF'){
         this.mode = mode;
@@ -218,7 +218,6 @@ const updateReceiverDisplay = (receiverState) => {
         $('#ifbw').text(receiverState.IFBW.text);
         $('#ifbw').data('ifbw-id', receiverState.IFBW.id);
     }
-    // following lines added 2019/01/07
     if (receiverState.mode && receiverState.IFBW){
         if (( !(receiverState.mode.digitalModeEnable) && receiverState.mode.analogReceiveMode.name == 'FM' && receiverState.IFBW.id > 2 ) || (receiverState.mode.digitalDecodeSettingMode.name == 'AUTO')){
             $('#ctcss-block').show();
@@ -285,8 +284,6 @@ const updateReceiverDisplay = (receiverState) => {
             $('#dcr-encryption-code-block').hide();
         }
     }
-// above lines added 2019/01/06
-// following lines added 2019/03/26 for T-TC Slot button
     if (receiverState.mode && receiverState.IFBW){
         if (receiverState.mode.digitalDecodeSettingMode.name == 'T-TC'){
 	        let TS_val = receiverState.TTCSlot.value;
@@ -306,7 +303,6 @@ const updateReceiverDisplay = (receiverState) => {
             $('#ttc-slot-block').hide();
         }
     }
-// above lines added 2019/03/26
 };
 const updateReceiverLog = (log) => {
     const durationText = (durationSec) => {
@@ -393,7 +389,6 @@ const getReceiverViewInfo = async (data, digitalAdditionalInfo) => {
     }else{
         ifbandwidth = mode.ifbw(ifbandwidth.value);
     }
-// following lines added 2019/01/07
     let CTCSS = await arReceiver.getCTCSS();
     if (CTCSS.code != 0){
         CTCSS = null;
@@ -414,13 +409,10 @@ const getReceiverViewInfo = async (data, digitalAdditionalInfo) => {
     if (DCREncryptionCode.code != 0){
         DCREncryptionCode = null;
     }
-// above lines added 2019/01/07
-// following lines added 2019/03/27
     let TTCSlot = await arReceiver.getTTCSlot();
     if (TTCSlot.code != 0){
         TTCSlot = null;
     }
-// above lines added 2019/03/27
     const duration = (startTime, endTime) => {
         return  Math.floor((endTime.getTime() - startTime.getTime()) / 1000);
     };

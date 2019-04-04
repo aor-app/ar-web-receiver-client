@@ -1,4 +1,4 @@
-/*! menu.js | 2019/01 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
+/*! menu.js | v1904B 2019/04 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
 const infoPopup = (message) => {
     showPopup('Info', message);
 };
