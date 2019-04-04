@@ -1,4 +1,4 @@
-/*! waterfall_class.js | 2019/01 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
+/*! waterfall_class.js | v1904B 2019/04 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
 const DOT_PER_SIZE = 5;
 const scaleLineWidth = 0;
 //******* envelope object *******

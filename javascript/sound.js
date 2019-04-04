@@ -1,4 +1,4 @@
-/*! sound.js | 2019/01 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
+/*! v1904B 2019/04 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
 function e(what){ return document.getElementById(what); }
 let audio_context = null;;
 let initial_delay_sec = 0;
