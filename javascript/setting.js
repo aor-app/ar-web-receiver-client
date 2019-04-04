@@ -1,4 +1,4 @@
-/*! setting.js | 2019/01 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
+/*! setting.js | v1904B 2019/04 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
 const PASSWORD_CHAR = new RegExp(/[^\x21-\x7e]/); // ASCII
 const PASSWORD_LENGTH = 8;
 const COUNTRY_CODE_REGEXP = new RegExp(/^[A-Z]{2}$/g);

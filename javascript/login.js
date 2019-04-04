@@ -1,4 +1,4 @@
-/*! ar_receiver.js | 2019/01 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
+/*! ar_receiver.js | v1904B 2019/04 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
 $(document).on('click', '#login', async () => {
     showLoadingAnimation('Login...');
     const result = await login($('#password').val());

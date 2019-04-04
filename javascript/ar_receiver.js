@@ -1,4 +1,4 @@
-/*! ar_receiver.js | v1903A 2019/03 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
+/*! ar_receiver.js | v1904B 2019/04 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
 class ARReceiver {
     constructor(){
         this.log = null;
@@ -132,7 +132,6 @@ class ARReceiver {
     getLevelSquelch (retryCount=0) {
         return this.sendCommand('GET', 'level_squelch', null, retryCount);
     }
-// following lines added 2019/01/06
     setCTCSS (value, retryCount=0) {
         return this.sendCommand('POST', 'ctcss', { value: value }, retryCount);
     }
@@ -163,15 +162,12 @@ class ARReceiver {
     getDCREncryptionCode (retryCount=0) {
         return this.sendCommand('GET', 'dcr_encryption_code', null, retryCount);
     }
-// above lines added 2019/01/06
-// following lines added 2019/03/26
     setTTCSlot (value, retryCount=0) {
         return this.sendCommand('POST', 'ttcslot', { value: value }, retryCount);
     }
     getTTCSlot (retryCount=0) {
         return this.sendCommand('GET', 'ttcslot', null, retryCount);
     }
-// above lines added 2019/03/26
 	getDigitalDataOutput (retryCount=0) {
         return this.sendCommand('GET', 'digital_data_output', null, retryCount);
     }

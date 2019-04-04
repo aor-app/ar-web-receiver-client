@@ -1,4 +1,4 @@
-/*! share.js | 2019/01 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
+/*! share.js | v1904B 2019/04 AOR, LTD. | www.aorja.com/receivers/ar-web-api/ */
 const paddingZero = (value) => {
     return  ('00' + value ).slice(-2);
 };
