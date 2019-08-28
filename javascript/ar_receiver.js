@@ -46,6 +46,12 @@ class ARReceiver {
     setReceiverStateNotification(value, retryCount=0){
         return this.sendCommand('POST', 'receiver_state_notification', { value: value }, retryCount);
     }
+    setSelectSquelch (value, retryCount=0){
+        return this.sendCommand('POST', 'select_squelch', { value: value }, retryCount);
+    }
+    setNoiseSquelch (value, retryCount=0){
+        return this.sendCommand('POST', 'Noise_squelch', { value: value }, retryCount);
+    }
     setLevelSquelch (value, retryCount=0){
         return this.sendCommand('POST', 'level_squelch', { value: value }, retryCount);
     }
@@ -128,6 +134,12 @@ class ARReceiver {
     }
     getVFO (retryCount=0) {
         return this.sendCommand('GET', 'vfo', null,retryCount);
+    }
+    getSelectSquelch (retryCount=0) {
+        return this.sendCommand('GET', 'select_squelch', null, retryCount);
+    }
+    getNoiseSquelch (retryCount=0) {
+        return this.sendCommand('GET', 'noise_squelch', null, retryCount);
     }
     getLevelSquelch (retryCount=0) {
         return this.sendCommand('GET', 'level_squelch', null, retryCount);

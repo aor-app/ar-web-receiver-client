@@ -1078,6 +1078,7 @@ $(document).on('change', '#power', () => {
     }
 });
 $(document).on('slidestop', '#squelch-val', () => {
+    arReceiver.setNoiseSquelch(parseInt($('#squelch-val').val() * 0.4));
     arReceiver.setLevelSquelch(parseInt($('#squelch-val').val()));
 });
 $(document).on('slidestop', '#vol', () => {
@@ -1169,3 +1170,12 @@ $(document).on('click', '#T-TC-slot-4', () => {
     arReceiver.setTTCSlot(4);
 });
 // above lines added 2019/03/26
+$(document).on('click', '#selSQL-Auto', () => {
+    arReceiver.setSelectSquelch(0);
+});
+$(document).on('click', '#selSQL-Noise', () => {
+    arReceiver.setSelectSquelch(1);
+});
+$(document).on('click', '#selSQL-Level', () => {
+    arReceiver.setSelectSquelch(2);
+});

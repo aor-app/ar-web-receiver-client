@@ -1,4 +1,4 @@
-# AR-WEB-RECEIVER-CLIENT v1904C  
+# AR-WEB-RECEIVER-CLIENT develop-dv10support v1908A  
 
 AR-WEB-RECEIVER-CLIENT is a sample web app for the Web API of AR-DV1 Web Adapter in VFO mode.  
 You can control AR-DV1 and listen to the received audio, through your iOS tablet’s web browser.  
@@ -7,6 +7,11 @@ Suitable for iPad Safari but not tuned to other browsers or small display sizes.
 ---
 
 ## RELEASE NOTES  
+### v1908AM  
+Added selectSquelch as SQL TYPE.  
+NSQ is linked with LSQ to support AR-DV10.  
+M at the end of the version number means AR-DV10 support.
+
 ### v1904C  
 A paragraph on receiver firmware version information compatible with T-TC and some comments were deleted from the receiver page.  
 
