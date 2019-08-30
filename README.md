@@ -9,7 +9,7 @@ Suitable for iPad Safari but not tuned to other browsers or small display sizes.
 ## RELEASE NOTES  
 ### v1908AM  
 Added selectSquelch as SQL TYPE.  
-Added NSQ slider insted of volume slider to support AR-DV10.  
+Added NSQ slider to support AR-DV10.  
 M at the end of the version number means AR-DV10 support.
 
 ### v1904C  

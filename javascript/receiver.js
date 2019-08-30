@@ -300,7 +300,7 @@ const updateReceiverDisplay = (receiverState) => {
             $('#ttc-slot-number').text(TS_sel + TS_rcvd);
             $('#ttc-slot-block').show();
         }else{
-            $('#ttc-slot-block').hide();
+//             $('#ttc-slot-block').hide();
         }
     }
 };
