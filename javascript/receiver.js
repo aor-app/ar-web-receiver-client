@@ -821,7 +821,7 @@ const startARReceiverClient = async (session) => {
         if (result.code != 0){
             throw new Error(result.message);
         }
-        const noise-squelch = await arReceiver.getNoiseSquelch();
+        const noiseSquelch = await arReceiver.getNoiseSquelch();
         if (result.code != 0){
             throw new Error(result.message);
         }
@@ -858,7 +858,7 @@ const startARReceiverClient = async (session) => {
         $('#vol').slider('refresh');
         $('#squelch-val').val(squelch.value);
         $('#squelch-val').slider('refresh');
-        $('#noise-squelch-val').val(noise-squelch.value);
+        $('#noise-squelch-val').val(noiseSquelch.value);
         $('#nouse-squelch-val').slider('refresh');
         //
         if (mute){
