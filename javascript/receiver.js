@@ -821,6 +821,10 @@ const startARReceiverClient = async (session) => {
         if (result.code != 0){
             throw new Error(result.message);
         }
+        const noise-squelch = await arReceiver.getNoiseSquelch();
+        if (result.code != 0){
+            throw new Error(result.message);
+        }
         const digitalDataOutput = await arReceiver.getDigitalDataOutput();
         if (result.code != 0){
             throw new Error(result.message);
@@ -854,6 +858,8 @@ const startARReceiverClient = async (session) => {
         $('#vol').slider('refresh');
         $('#squelch-val').val(squelch.value);
         $('#squelch-val').slider('refresh');
+        $('#noise-squelch-val').val(noise-squelch.value);
+        $('#nouse-squelch-val').slider('refresh');
         //
         if (mute){
             // vol = 0!
@@ -1078,8 +1084,10 @@ $(document).on('change', '#power', () => {
     }
 });
 $(document).on('slidestop', '#squelch-val', () => {
-    arReceiver.setNoiseSquelch(parseInt($('#squelch-val').val() * 0.4));
     arReceiver.setLevelSquelch(parseInt($('#squelch-val').val()));
+});
+$(document).on('slidestop', '#noise-squelch-val', () => {
+    arReceiver.setNoiseSquelch(parseInt($('#noise-squelch-val').val()));
 });
 $(document).on('slidestop', '#vol', () => {
     arReceiver.setVolume(parseInt($('#vol').val()));
